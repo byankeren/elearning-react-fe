@@ -22,9 +22,11 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
+import { Plus } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { DataTablePagination } from "./data-table-pagination";
 import { DataTableViewOptions } from "./column-toggle";
+import { Button } from "@/components/ui/button";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -62,19 +64,25 @@ export function DataTable<TData, TValue>({
   });
 
   return (
-    <div>
-      <div className="flex items-center py-4">
+    <div className="px-6 pb-6">
+      <div className="flex items-center py-4 w-full">
         <Input
-          placeholder="Filter emails..."
-          value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
+          placeholder="Filter name..."
+          value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
-            table.getColumn("email")?.setFilterValue(event.target.value)
+            table.getColumn("name")?.setFilterValue(event.target.value)
           }
           className="max-w-sm"
         />
-        <DataTableViewOptions table={table} />
+        <div className="flex justify-end w-full gap-2">
+          <DataTableViewOptions table={table} />
+          <Button variant={"outline"}>
+            <Plus className="mr-2 h-4 w-4" />
+            Tambah
+          </Button>
+        </div>
       </div>
-      <div className="rounded-md border">
+      <div className="rounded-md border h-full">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (

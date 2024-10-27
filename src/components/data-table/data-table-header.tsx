@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 // Import icons from Lucide React
-import { ArrowDown, ArrowUp, EyeOff } from "lucide-react";
+import { ArrowDown, ArrowUp, EyeOff, ChevronsUpDown } from "lucide-react";
 
 interface DataTableColumnHeaderProps<TData, TValue>
   extends React.HTMLAttributes<HTMLDivElement> {
@@ -43,7 +43,7 @@ export function DataTableColumnHeader<TData, TValue>({
             ) : column.getIsSorted() === "asc" ? (
               <ArrowUp className="ml-2 h-4 w-4" />
             ) : (
-              <div>Hide</div>
+              <ChevronsUpDown className="ml-2 h-4 w-4"/>
             )}
           </Button>
         </DropdownMenuTrigger>

@@ -1,34 +1,34 @@
 import { useEffect, useState } from "react";
-import { Payment, columns } from "./columns";
+import { Student, columns } from "./columns";
 import { DataTable } from "../../components/data-table/data-table";
 
-async function getData(): Promise<Payment[]> {
+async function getData(): Promise<Student[]> {
   // Fetch data from your API here.
   return [
     {
       id: "728ed52f",
-      amount: 100,
-      status: "pending",
-      email: "m@example.com",
+      name: "Abyan",
+      major: "RPL",
+      grade: "X",
     },
     {
       id: "728ed52f",
-      amount: 100,
-      status: "pending",
-      email: "m@example.com",
+      name: "Byan",
+      major: "TKJ",
+      grade: "XII",
     },
     {
       id: "728ed52f",
-      amount: 100,
-      status: "pending",
-      email: "m@example.com",
+      name: "Yan",
+      major: "MM",
+      grade: "XI",
     },
     // Add more sample data as needed
   ];
 }
 
-export default function DemoPage() {
-  const [data, setData] = useState<Payment[]>([]);
+export default function StudentPage() {
+  const [data, setData] = useState<Student[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -46,8 +46,6 @@ export default function DemoPage() {
   }
 
   return (
-    <div className="">
       <DataTable columns={columns} data={data} />
-    </div>
   );
 }
